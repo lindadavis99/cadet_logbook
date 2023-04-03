@@ -1,0 +1,226 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+
+<head>
+        
+        <meta charset="utf-8" />
+        <title>Home | CadetLogBook </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- plugin css -->
+        <link href="{% static 'assets/libs/jsvectormap/css/jsvectormap.min.css' %}" rel="stylesheet" type="text/css" />
+
+        <!-- Bootstrap Css -->
+        <link href="{% static 'assets/css/bootstrap.min.css' %}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="{% static 'assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="{% static 'assets/css/app.min.css' %}" id="app-style" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    <body data-layout="horizontal">
+
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+
+            {% include 'header.html' %}
+
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-flex align-items-center justify-content-between">
+                                    <h4 class="mb-0">Overview</h4>
+
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                                            <li class="breadcrumb-item active">Overview</li>
+                                        </ol>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+                        <div class="row">
+                            <div class="col-xl-3 col-sm-6">
+                                <!-- Card -->
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h6 class="font-size-xs text-uppercase">Total Revenue</h6>
+                                                <h4 class="mt-4 font-weight-bold mb-2 d-flex align-items-center">
+                                                    $46.34k
+                                                </h4>
+                                                <div class="text-muted">Earning this month</div>
+                                            </div>
+                                            <div>
+                                                <div class="dropdown">
+                                                    <a class="dropdown-toggle btn btn-light btn-sm" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false"><span class="text-muted">Monthly<i
+                                                                class="mdi mdi-chevron-down ms-1"></i></span>
+                                                    </a>
+    
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="#">Monthly</a>
+                                                        <a class="dropdown-item" href="#">Yearly</a>
+                                                        <a class="dropdown-item" href="#">Weekly</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="apex-charts mt-3" id="sparkline-chart-1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-sm-6">
+                                <!-- Card -->
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h6 class="font-size-xs text-uppercase">Total Refunds</h6>
+                                                <h4 class="mt-4 font-weight-bold mb-2 d-flex align-items-center">
+                                                    $895.02
+                                                </h4>
+                                                <div class="text-muted">Refunds this month</div>
+                                            </div>
+                                            <div>
+                                                <div class="dropdown">
+                                                    <a class="dropdown-toggle btn btn-light btn-sm" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false"><span class="text-muted">Monthly<i
+                                                                class="mdi mdi-chevron-down ms-1"></i></span>
+                                                    </a>
+    
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="#">Monthly</a>
+                                                        <a class="dropdown-item" href="#">Yearly</a>
+                                                        <a class="dropdown-item" href="#">Weekly</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="apex-charts mt-3" id="sparkline-chart-2"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-sm-6">
+                                <!-- Card -->
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h6 class="font-size-xs text-uppercase">Active Users</h6>
+                                                <h4 class="mt-4 font-weight-bold mb-2 d-flex align-items-center">
+                                                    6,985
+                                                </h4>
+                                                <div class="text-muted">Users this Week</div>
+                                            </div>
+                                            <div>
+                                                <div class="dropdown">
+                                                    <a class="dropdown-toggle btn btn-light btn-sm" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false"><span class="text-muted">Weekly<i
+                                                                class="mdi mdi-chevron-down ms-1"></i></span>
+                                                    </a>
+    
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="#">Monthly</a>
+                                                        <a class="dropdown-item" href="#">Yearly</a>
+                                                        <a class="dropdown-item" href="#">Weekly</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="apex-charts mt-3" id="sparkline-chart-3"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-sm-6">
+                                <!-- Card -->
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h6 class="font-size-xs text-uppercase">All Time Orders</h6>
+                                                <h4 class="mt-4 font-weight-bold mb-2 d-flex align-items-center">
+                                                    12,584
+                                                </h4>
+                                                <div class="text-muted">Total Number of Orders</div>
+                                            </div>
+                                            <div>
+                                                <div class="dropdown">
+                                                    <a class="dropdown-toggle btn btn-light btn-sm" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false"><span class="text-muted">Yearly<i
+                                                                class="mdi mdi-chevron-down ms-1"></i></span>
+                                                    </a>
+    
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="#">Monthly</a>
+                                                        <a class="dropdown-item" href="#">Yearly</a>
+                                                        <a class="dropdown-item" href="#">Weekly</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="apex-charts mt-3" id="sparkline-chart-4"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- end row-->
+    
+                        <!-- end row -->
+    
+                    
+                        
+                    </div> <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+
+                
+              {% include 'footer.html'  %}
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+   
+
+
+        <!-- JAVASCRIPT -->
+        <script src="{% static 'assets/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'assets/libs/metismenujs/metismenujs.min.js' %}"></script>
+        <script src="{% static 'assets/libs/simplebar/simplebar.min.js' %}"></script>
+        <script src="{% static 'assets/libs/feather-icons/feather.min.js' %}"></script>
+
+        <!-- apexcharts -->
+        <script src="{% static 'assets/libs/apexcharts/apexcharts.min.js' %}"></script>
+
+        <!-- Vector map-->
+        <script src="{% static 'assets/libs/jsvectormap/js/jsvectormap.min.js' %}"></script>
+        <script src="{% static 'assets/libs/jsvectormap/maps/world-merc.js' %}"></script>
+
+        <script src="{% static 'assets/js/pages/dashboard-sales.init.js' %}"></script>
+
+        <script src="{% static 'assets/js/app.js' %}"></script>
+
+    </body>
+
+</html>
