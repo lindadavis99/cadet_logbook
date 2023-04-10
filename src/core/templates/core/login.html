@@ -6,7 +6,7 @@
 <head>
         
         <meta charset="utf-8" />
-        <title>Sign In | CadetLogBook </title>
+        <title>Sign In | CadetLogbook </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <!-- App favicon -->
@@ -22,15 +22,25 @@
     </head>
 
     
-    <body>
+    <body class="body-img">
 
     <!-- <body data-layout="horizontal"> -->
+    
+
+       
 
         <div class="authentication-bg min-vh-100">
             <div class="bg-overlay bg-white"></div>
-            <div class="container">
+            <div class="container">   
                 <div class="d-flex flex-column min-vh-100 px-3 pt-4">
                     <div class="row justify-content-center my-auto">
+
+                        <div class="h-100 d-flex align-items-center justify-content-center">
+                            <div>
+                                <img src="{% static 'assets/images/nda_logo_dark.png' %}" alt="" height="100">
+                            </div>
+                        </div>
+
                         <div class="col-lg-10">
                             <div class="py-5">
                                 <div class="card auth-cover-card overflow-hidden">
@@ -52,12 +62,13 @@
                                                         <h5 class="text-white">Welcome Back !</h5>
                                                         <p>Sign in to continue to CadetLogbook.</p>
                                                     </div>
+
                                                     <form>
                                                         <div class="form-floating form-floating-custom mb-3">
                                                             <input type="text" class="form-control" id="input-username" placeholder="Enter User name">
                                                             <label for="input-username">Cadet No : </label>
                                                             <div class="form-floating-icon">
-                                                                <i class="uil uil-users-alt"></i>
+                                                                <i  class="uil uil-users-alt"></i>
                                                             </div>
                                                         </div>
                                                         <div class="form-floating form-floating-custom mb-3">
@@ -80,7 +91,7 @@
                                                         </div>
                     
                                                         <div class="mt-4 text-center">
-                                                            <a href="auth-resetpassword-cover.html" class="text-white-50 text-decoration-underline">Forgot your password?</a>
+                                                            <a href="{% url 'core:forgotpassword' %}" class="text-white-50 text-decoration-underline">Forgot your password?</a>
                                                         </div>
                                                     </form><!-- end form -->
                                                 </div>
@@ -98,7 +109,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="text-center text-muted p-4">
-                                <p class="mb-0">&copy; <script>document.write(new Date().getFullYear())</script> Dashonic. Crafted with <i class="mdi mdi-heart text-danger"></i> by Pichforest</p>
+                                <p class="mb-0">&copy; <script>document.write(new Date().getFullYear())</script>  Design By <i class="mdi mdi-heart text-danger"></i> by <a href="#" target="_blank" class="text-reset">Haruna Abdullahi</a> </p>
                             </div>
                         </div><!-- end col -->
                     </div><!-- end row -->

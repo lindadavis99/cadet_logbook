@@ -14,3 +14,8 @@ def login(request):
 
 def signup(request):
     return render(request, 'core/signup.html', {})
+
+
+
+def forgot_password(request):
+    return render(request, 'core/forgot_password.html', {})
