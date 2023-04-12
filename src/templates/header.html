@@ -6,21 +6,21 @@
             <!-- LOGO -->
             <div class="navbar-brand-box">
                 
-                <a href="#" class="logo logo-dark">
+                <a href="{% url 'core:dashboard'  %}" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="{% static 'assets/images/nda_logo_dark.png' %}" alt="" height="50">
+                        <img src="{% static 'assets/images/dashboard_logo.png' %}" alt="" height="50">
                     </span>
                     <span class="logo-lg">
-                        <img src="{% static 'assets/images/nda_logo_dark.png' %}" alt="" height="50">
+                        <img src="{% static 'assets/images/dashboard_logo.png' %}" alt="" height="50">
                     </span>
                 </a>
 
                 <a href="#" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="{% static 'assets/images/nda_logo_dark.png' %}" alt="" height="50">
+                        <img src="{% static 'assets/images/dashboard_logo.png' %}" alt="" height="50">
                     </span>
                     <span class="logo-lg">
-                        <img src="{% static 'assets/images/nda_logo_dark.png' %}" alt="" height="50">
+                        <img src="{% static 'assets/images/dashboard_logo.png' %}" alt="" height="50">
                     </span>
                 </a>
 
@@ -51,123 +51,12 @@
                 </div>
             </div>
             <div class="dropdown d-inline-block language-switch">
-                <button type="button" class="btn header-item"
-                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img id="header-lang-img" src="{% static 'assets/images/flags/us.jpg' %}" alt="Header Language" height="16">
+                <button type="button" class="btn header-item">
+                    <img id="header-lang-img" src="{% static 'assets/images/nigeria.png'  %}" alt="Header Language" height="20">
                 </button>
-                <div class="dropdown-menu dropdown-menu-end">
-        
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="eng">
-                        <img src="{% static 'assets/images/flags/us.jpg' %}" alt="user-image" class="me-1" height="12"> <span class="align-middle">English</span>
-                    </a>
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="sp">
-                        <img src="{% static 'assets/images/flags/spain.jpg' %}" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="gr">
-                        <img src="{% static 'assets/images/flags/germany.jpg' %}" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="it">
-                        <img src="assets/images/flags/italy.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="ru">
-                        <img src="assets/images/flags/russia.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>
-                    </a>
-                </div>
+               
             </div>
-            <div class="dropdown d-none d-lg-inline-block">
-                <button type="button" class="btn header-item noti-icon"
-                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="icon-sm" data-feather="grid"></i>
-                </button>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0">
-                    <div class="p-3 border-bottom">
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <h5 class="m-0 font-size-15"> Web Apps </h5>
-                            </div>
-                            <div class="col-auto">
-                                <a href="javascript:void(0);" class="small fw-semibold text-decoration-underline"> View All</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-simplebar style="max-height: 270px;">
-                        <a class="notification-item text-reset" href="javascript:void(0);">
-                            <div class="d-flex border-bottom align-items-center">
-                                <div class="flex-shrink-0">
-                                    <img src="assets/images/brands/slack.png" alt="slack">
-                                </div>
-                                <div class="flex-grow-1 ms-4">
-                                    <h6 class="mb-0">Slack</h6>
-                                    <p class="font-size-12 text-muted mb-0">This is your moment. Let’s reinvent work.</p>
-                                </div>
-                            </div>
-                        </a><!-- end dropdown item -->
-                        <a class="notification-item text-reset" href="javascript:void(0);">
-                            <div class="d-flex border-bottom align-items-center">
-                                <div class="flex-shrink-0">
-                                    <img src="assets/images/brands/behance.png" alt="behance">
-                                </div>
-                                <div class="flex-grow-1 ms-4">
-                                    <h6 class="mb-0">Behance <span class="badge bg-warning badge-pill ml-1">Free</span></h6>
-                                    <p class="font-size-12 text-muted mb-0">Showcase your work.</p>
-                                </div>
-                            </div>
-                        </a><!-- end dropdown item -->
-                        <a class="notification-item text-reset" href="javascript:void(0);">
-                            <div class="d-flex border-bottom align-items-center">
-                                <div class="flex-shrink-0">
-                                    <img src="assets/images/brands/dribbble.png" alt="dribbble">
-                                </div>
-                                <div class="flex-grow-1 ms-4">
-                                    <h6 class="mb-0">Dribbble</h6>
-                                    <p class="font-size-12 text-muted mb-0">Dribbble is the world’s leading community for creatives to share, grow, and get hired.</p>
-                                </div>
-                            </div>
-                        </a><!-- end dropdown item -->
-                        <a class="notification-item text-reset" href="javascript:void(0);">
-                            <div class="d-flex border-bottom align-items-center">
-                                <div class="flex-shrink-0">
-                                    <img src="assets/images/brands/dropbox.png" alt="dropbox">
-                                </div>
-                                <div class="flex-grow-1 ms-4">
-                                    <h6 class="mb-0">Dropbox</h6>
-                                    <p class="font-size-12 text-muted mb-0">Keep life organized and work moving—all in one place</p>
-                                </div>
-                            </div>
-                        </a><!-- end dropdown item -->
-                        <a class="notification-item text-reset" href="javascript:void(0);">
-                            <div class="d-flex border-bottom align-items-center">
-                                <div class="flex-shrink-0">
-                                    <img src="assets/images/brands/mail_chimp.png" alt="mail_chimp">
-                                </div>
-                                <div class="flex-grow-1 ms-4">
-                                    <h6 class="mb-0">Mail Chimp <span class="badge bg-danger badge-pill ml-1">Premium</span></h6>
-                                    <p class="font-size-12 text-muted mb-0">The best value for your digital marketing budget</p>
-                                </div>
-                            </div>
-                        </a><!-- end dropdown item -->
-                        <a class="notification-item text-reset" href="javascript:void(0);">
-                            <div class="d-flex align-items-center">
-                                <div class="flex-shrink-0">
-                                    <img src="assets/images/brands/github.png" alt="github">
-                                </div>
-                                <div class="flex-grow-1 ms-4">
-                                    <h6 class="mb-0">Github</h6>
-                                    <p class="font-size-12 text-muted mb-0">Where the world builds software</p>
-                                </div>
-                            </div>
-                        </a><!-- end dropdown item -->
-                    </div><!-- end simplebar -->
-                </div>
-            </div>
+           
 
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item noti-icon" id="page-header-notifications-dropdown"
@@ -192,7 +81,7 @@
                         <a href="#" class="text-reset notification-item">
                             <div class="d-flex border-bottom align-items-start">
                                 <div class="flex-shrink-0">
-                                    <img src="assets/images/users/avatar-3.jpg"
+                                    <img src="{% static 'assets/images/users/avatar-3.jpg' %}"
                                     class="me-3 rounded-circle avatar-sm" alt="user-pic">
                                 </div>
                                 <div class="flex-grow-1">
@@ -245,7 +134,7 @@
                         <a href="#" class="text-reset notification-item">
                             <div class="d-flex border-bottom align-items-start">
                                 <div class="flex-shrink-0">
-                                    <img src="assets/images/users/avatar-4.jpg"
+                                    <img src="{% static 'assets/images/users/avatar-4.jpg' %}"
                                         class="me-3 rounded-circle avatar-sm" alt="user-pic">
                                 </div>
                                 <div class="flex-grow-1">
@@ -268,7 +157,8 @@
 
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item noti-icon right-bar-toggle" id="right-bar-toggle">
-                    <i class="icon-sm" data-feather="settings"></i>
+                    <a href="{% url 'core:settings' %}"> <i class="icon-sm" data-feather="settings"></i> </a>
+                    
                 </button>
             </div>
 
@@ -287,15 +177,15 @@
                         <h6 class="mb-0 text-white">Haruna Abdullahi</h6>
                         <p class="mb-0 font-size-11 text-white-50 fw-semibold">harunaabdullahi@gmail.com</p>
                     </div>
-                    <a class="dropdown-item" href="pages-profile.html"><i class="mdi mdi-account-circle text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
-                    <a class="dropdown-item" href="apps-chat.html"><i class="mdi mdi-message-text-outline text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Messages</span></a>
-                    <a class="dropdown-item" href="apps-kanban-board.html"><i class="mdi mdi-calendar-check-outline text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Taskboard</span></a>
-                    <a class="dropdown-item" href="pages-faqs.html"><i class="mdi mdi-lifebuoy text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Help</span></a>
+                    <a class="dropdown-item" href="{% url 'core:cadet_profile' %}"><i class="uil-user text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
+                    <a class="dropdown-item" href="{% url 'core:cadet_messages' %}"><i class="uil-envelope-add text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Messages</span></a>
+                    <a class="dropdown-item" href="{% url 'core:cadet_taskboard' %}"><i class="uil-clipboard-notes text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Taskboard</span></a>
+
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="pages-profile.html"><i class="mdi mdi-wallet text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Balance : <b>$6951.02</b></span></a>
-                    <a class="dropdown-item d-flex align-items-center" href="user-settings.html"><i class="mdi mdi-cog-outline text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Settings</span><span class="badge badge-soft-success ms-auto">New</span></a>
-                    <a class="dropdown-item" href="auth-lockscreen-basic.html"><i class="mdi mdi-lock text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Lock screen</span></a>
-                    <a class="dropdown-item" href="auth-signout-basic.html"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Logout</span></a>
+
+                    <a class="dropdown-item d-flex align-items-center" href="{% url 'core:settings' %}"><i class="uil-wrench text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Settings</span></a>
+                    <a class="dropdown-item" href="{% url 'core:lockscreen'  %}"><i class="uil-lock text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Lock screen</span></a>
+                    <a class="dropdown-item" href="#"><i class="uil-sign-out-alt text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Logout</span></a>
                 </div>
             </div>
         </div>
@@ -306,17 +196,10 @@
 
                 <div class="collapse navbar-collapse" id="topnav-menu-content">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link arrow-none" href="#" id="topnav-dashboard" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="icon nav-icon" data-feather="monitor"></i>
-                                <span data-key="t-dashboards">Home</span>
-                            </a>
-                         
-                        </li>
+                     
 
                         <li class="nav-item">
-                            <a class="nav-link  arrow-none" href="#" id="topnav-uielement" role="button"
+                            <a class="nav-link  arrow-none" href="{% url 'core:dashboard' %}" id="topnav-uielement" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="icon nav-icon" data-feather="package"></i>
                                <span data-key="t-elements">Dashboard</span>
@@ -324,35 +207,37 @@
 
                           
                         </li>
+                        
 
                         <li class="nav-item">
-                            <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-pages" role="button"
+                            <a class="nav-link dropdown-toggle arrow-none" href="{% url 'core:cadets' %}" id="topnav-components" role="button"
                             >
+                                <i class="icon nav-icon" data-feather="layers"></i>
+                                <span data-key="t-components">Cadets</span>
+                            </a>
+
+                        </li>
+
+                        
+                        <li class="nav-item">
+                            <a class="nav-link arrow-none" href="{% url 'core:supervisors_profile'  %}">
+                                <i class="icon nav-icon" data-feather="layout"></i>
+                                <span data-key="t-horizontal">Supervisors</span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle arrow-none" href="{% url 'core:cadet_logbook' %}" id="topnav-pages" role="button">
                                 <i class="icon nav-icon" data-feather="grid"></i>
                                 <span data-key="t-apps">Cadet Logbook</span>
                             </a>
 
                         </li>
 
+          
                         <li class="nav-item">
-                            <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-components" role="button"
-                            >
-                                <i class="icon nav-icon" data-feather="layers"></i>
-                                <span data-key="t-components">Cadet Profile</span>
-                            </a>
-
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link arrow-none" href="#">
-                                <i class="icon nav-icon" data-feather="layout"></i>
-                                <span data-key="t-horizontal">Supervisor Profile</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link arrow-none" href="#" id="topnav-more" role="button"
-                            >
+                            <a class="nav-link arrow-none" href="{% url 'core:timeline' %}" id="topnav-more" role="button">
                                 <i class="icon nav-icon" data-feather="file"></i>
                                 <span data-key="t-extra-pages">Timeline</span>
                             </a>

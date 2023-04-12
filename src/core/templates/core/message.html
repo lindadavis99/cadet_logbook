@@ -1,0 +1,40 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %} Message | CadetLogbook {% endblock title %}
+
+
+{% block content %} 
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex flex-column min-vh-100">
+                <div class="text-center my-auto py-5">
+                    <div class="row justify-content-center mb-5">
+                        <div class="col-sm-4">
+                            <div class="maintenance-img">
+                                <img src="{% static 'assets/images/maintenance.png' %}" alt="" class="img-fluid mx-auto d-block">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-muted mb-5">
+                        <h4>Sorry you have no messages yet!</h4>
+                        <p>Please check back when you have unread messages.</p>
+                    </div>
+
+                    <!-- end row -->
+                </div>
+
+           
+            </div>
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- end row -->
+</div>
+
+
+
+{% endblock content %}
