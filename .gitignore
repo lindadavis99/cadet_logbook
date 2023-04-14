@@ -2,3 +2,4 @@ venv/
 /media_cdn
 /static_cdn
 /src/cadet_logbook/settings/base.py
+/src/core/token_generator.py
