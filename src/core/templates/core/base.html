@@ -29,7 +29,11 @@
         <!-- Begin page -->
         <div id="layout-wrapper">
 
-            {% include 'header.html' %}
+            {% block header %}
+                
+                <!-- Overide header in child template -->
+                
+            {% endblock header %}
 
 
             <!-- ============================================================== -->

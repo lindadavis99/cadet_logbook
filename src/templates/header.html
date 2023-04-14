@@ -168,14 +168,14 @@
                     <img class="rounded-circle header-profile-user" src="{% static 'assets/images/avatar.jpg' %}"
                     alt="Header Avatar">
                     <span class="ms-2 d-none d-sm-block user-item-desc">
-                        <span class="user-name"> Haruna Abdullahi </span>
-                        <span class="user-sub-title">Cadet</span>
+                        <span class="user-name"> {{ user_profile.user.first_name | capfirst }} {{ user_profile.user.last_name | capfirst }} </span>
+                        <span class="user-sub-title">{{ user_profile.account_type|capfirst }}</span>
                     </span>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end pt-0">
                     <div class="p-3 bg-primary border-bottom">
-                        <h6 class="mb-0 text-white">Haruna Abdullahi</h6>
-                        <p class="mb-0 font-size-11 text-white-50 fw-semibold">harunaabdullahi@gmail.com</p>
+                        <h6 class="mb-0 text-white">{{ user_profile.user.first_name | capfirst }} {{ user_profile.user.last_name | capfirst }}</h6>
+                        <p class="mb-0 font-size-11 text-white-50 fw-semibold">{{ user_profile.user.email }}</p>
                     </div>
                     <a class="dropdown-item" href="{% url 'core:cadet_profile' %}"><i class="uil-user text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
                     <a class="dropdown-item" href="{% url 'core:cadet_messages' %}"><i class="uil-envelope-add text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Messages</span></a>
@@ -185,7 +185,7 @@
 
                     <a class="dropdown-item d-flex align-items-center" href="{% url 'core:settings' %}"><i class="uil-wrench text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Settings</span></a>
                     <a class="dropdown-item" href="{% url 'core:lockscreen'  %}"><i class="uil-lock text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Lock screen</span></a>
-                    <a class="dropdown-item" href="#"><i class="uil-sign-out-alt text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Logout</span></a>
+                    <a class="dropdown-item" href="{% url 'core:logout'  %}"><i class="uil-sign-out-alt text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Logout</span></a>
                 </div>
             </div>
         </div>

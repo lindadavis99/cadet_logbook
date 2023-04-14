@@ -21,7 +21,7 @@
     </head>
 
     
-    <body>
+    <body class="body-img">
 
     <!-- <body data-layout="horizontal"> -->
 
@@ -35,7 +35,7 @@
                         <div class="text-center py-5">
                             <div class="mb-4 mb-md-5">
                                 <a href="index.html" class="d-block auth-logo">
-                                    <img src="{% static 'assets/images/dashboard_logo.png' %}" alt="" height="70">
+                                    <img src="{% static 'assets/images/dashboard_logo.png' %}" alt="" height="100">
                                     
                                 </a>
                             </div>
@@ -43,7 +43,10 @@
                                 <img src="{% static 'assets/images/avatar.jpg' %}" class="rounded-circle img-thumbnail avatar-lg" alt="thumbnail">
                                 <h5 class="font-size-16 mt-3">Haruna Abdullahi</h5>
                             </div>
-                            <form>
+                            <form action="{% url 'core:home' %}" method="POST">
+
+                                {% csrf_token %}
+
                                 <div class="form-floating form-floating-custom mb-3">
                                     <input type="password" class="form-control" id="input-password" placeholder="Enter Password">
                                     <label for="input-password">Password</label>
@@ -64,23 +67,17 @@
                     </div><!-- end col -->
                 </div><!-- end row -->
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center text-muted p-4">
-                            <p class="mb-0">&copy; <script>document.write(new Date().getFullYear())</script> Dashonic. Crafted with <i class="mdi mdi-heart text-danger"></i> by Pichforest</p>
-                        </div>
-                    </div><!-- end col -->
-                </div><!-- end row -->
+        
                 </div>
             </div><!-- end container -->
         </div>
         <!-- end authentication section -->
 
         <!-- JAVASCRIPT -->
-        <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/libs/metismenujs/metismenujs.min.js"></script>
-        <script src="assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="assets/libs/feather-icons/feather.min.js"></script>
+        <script src="{% static 'assets/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'assets/libs/metismenujs/metismenujs.min.js' %}"></script>
+        <script src="{% static 'assets/libs/simplebar/simplebar.min.js' %}"></script>
+        <script src="{% static 'assets/libs/feather-icons/feather.min.js' %}"></script>
 
     </body>
 

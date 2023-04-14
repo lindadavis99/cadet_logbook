@@ -4,6 +4,13 @@
 
 {% block title %}  Supervisors | CadetLogbook  {% endblock title %}
 
+{% block header %}
+
+    {% include 'header.html' with user_profile=profile %}
+
+{% endblock header %}
+
+
 {% block content %}
 
 <div class="container-fluid">

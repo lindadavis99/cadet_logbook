@@ -1,0 +1,75 @@
+{% load static %}
+{% load widget_tweaks %}
+<!doctype html>
+<html lang="en">
+
+    
+
+<head>
+        
+        <meta charset="utf-8" />
+        <title>Recover Password | CadetLogbook</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- Bootstrap Css -->
+        <link href="{% static 'assets/css/bootstrap.min.css' %}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="{% static 'assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="{% static 'assets/css/app.min.css' %}" id="app-style" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    
+    <body class="body-img">
+
+    <!-- <body data-layout="horizontal"> -->
+
+        <div class="authentication-bg min-vh-100">
+            <div class="bg-overlay bg-white"></div>
+            <div class="container">
+                <div class="d-flex flex-column min-vh-100 px-3 pt-4">
+                    <div class="row justify-content-center my-auto">
+                        <div class="col-md-8 col-lg-6 col-xl-4">
+                        
+                            <div class="text-center py-5">
+                                <div class="mb-4 mb-md-5">
+                                    <a href="{% url 'core:home' %}" class="d-block auth-logo">
+                                        <img src="{% static 'assets/images/dashboard_logo.png' %}" alt="" height="100" class="auth-logo-dark">
+                                        <img src="{% static 'assets/images/dashboard_logo.png' %}" alt="" height="100" class="auth-logo-light">
+                                    </a>
+                                </div>
+                                <div class="text-muted mb-4">
+                                    <h4> Account Created Successfully! </h4>
+                                  
+                                </div>
+                                <div class="alert alert-success text-center mb-4" role="alert">
+                                    We've sent you an email to {{ email|capfirst }}. Please check your inbox or spam,
+                                    In order to activate your account.
+                                </div>
+
+                                <div class="mt-5 text-center">
+                                    <p> <a href="{% url 'core:home' %}" class="fw-medium text-decoration-underline"> Get started </a></p>
+                                </div>
+                            
+                            </div>
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                </div>
+            </div><!-- end container -->
+        </div>
+        <!-- end authentication section -->
+
+        <!-- JAVASCRIPT -->
+        <script src="{% static 'assets/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'assets/libs/metismenujs/metismenujs.min.js' %}"></script>
+        <script src="{% static 'assets/libs/simplebar/simplebar.min.js' %}"></script>
+        <script src="{% static 'assets/libs/feather-icons/feather.min.js' %}"></script>
+
+    </body>
+
+
+</html>
