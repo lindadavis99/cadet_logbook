@@ -101,13 +101,15 @@ def lockscreen(request):
 
 @login_required
 def cadets(request):
-    profile = get_object_or_404(Profile, user=request.user)  
+    profile = get_object_or_404(Profile, user=request.user)
+    cadets = Profile.objects.filter(account_type='cadet')  
     return render(request, 'core/cadets.html', {
-        'profile':profile
+        'profile':profile,
+        'cadets' : cadets 
     })
 
 @login_required
-def cadet_profile(request):
+def cadet_profile(request, id):
     profile = get_object_or_404(Profile, user=request.user)  
     return render(request, 'core/profile.html', {
         'profile':profile
@@ -144,8 +146,10 @@ def cadet_logbook_overview(request):
 @login_required
 def supervisors(request):
     profile = get_object_or_404(Profile, user=request.user)  
+    supervisors = Profile.objects.filter(account_type='supervisor')  
     return render(request, 'core/supervisors.html', {
-        'profile': profile
+        'profile': profile,
+        'supervisors' : supervisors
     })
 
 @login_required

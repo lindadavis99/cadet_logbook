@@ -19,7 +19,7 @@ class Profile(models.Model):
     )
     
     user = models.OneToOneField(User,  related_name='userprofiles', on_delete=models.CASCADE, null=True)
-    profile_pic = models.ImageField(upload_to='profile-pic/uploads/%y/%m/%d', default='user-avatar-placeholder.png', blank=True, null=True)
+    profile_pic = models.ImageField(upload_to='profile-pic/uploads/%y/%m/%d', default='avatar.png', blank=True, null=True)
     smart = ImageSpecField(source='profile_pic', processors=[SmartResize(512,512)], format='PNG')
     gender = models.CharField(max_length=50, choices=GENDER)
     account_type = models.CharField(max_length=50, choices=ACCOUNT_TYPE, null=True)
@@ -29,7 +29,12 @@ class Profile(models.Model):
     
     def __str__(self):
         return "{} Profile".format(self.user)
+
     
     class Meta:
         ordering = ('-created',)
         verbose_name_plural = 'Profile'
+
+        
+   
+    

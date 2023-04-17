@@ -40,7 +40,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <h5 class="card-title">Contact List <span class="text-muted fw-normal ms-2">(834)</span></h5>
+                                <h5 class="card-title">Supervisors <span class="text-muted fw-normal ms-2">(834)</span></h5>
                             </div>
                         </div><!-- end col -->
                         <div class="col-md-6">
@@ -114,297 +114,44 @@
                     <!-- end modal -->
                     
                     <div class="row">
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="card border shadow-none">
-                                <div class="card-body p-4">
-                                    <div class="d-flex align-items-start">
-                                        <div class="flex-shrink-0 avatar rounded-circle me-3">
-                                            <img src="{% static 'assets/images/users/avatar-1.jpg' %}" alt="" class="img-fluid rounded-circle">
-                                        </div>
-                                        <div class="flex-grow-1 overflow-hidden">
-                                            <h5 class="font-size-15 mb-1 text-truncate"><a href="pages-profile.html" class="text-dark">Donald
-                                                    Risher</a></h5>
-                                            <p class="text-muted text-truncate mb-0">Full Stack Developer
-                                            </p>
-                                        </div>
-                                        <div class="flex-shrink-0 dropdown">
-                                            <a class="text-body dropdown-toggle font-size-16" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal icon-xs"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">Edit</a>
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Remove</a>
+
+                        {% for supervisor in supervisors %}
+                            <div class="col-xl-4 col-sm-6">
+                                <div class="card border shadow-none">
+                                    <div class="card-body p-4">
+                                        <div class="d-flex align-items-start">
+                                            <div class="flex-shrink-0 avatar rounded-circle me-3">
+                                                <img src="{{ supervisor.smart.url }}" alt="" class="img-fluid rounded-circle">
                                             </div>
-                                        </div><!-- end dropdown -->
-                                    </div>
-                                </div>
-                                <!-- end card body -->
-                                <div class="btn-group btn-icon" role="group">
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Profile"><i class="uil uil-user"></i></button>
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message"><i class="uil uil-envelope-alt"></i></button>
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Projects"><i class="uil uil-chart-pie"></i></button>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="card border shadow-none">
-                                <div class="card-body p-4">
-                                    <div class="d-flex align-items-start">
-                                        <div class="flex-shrink-0 avatar rounded-circle me-3">
-                                            <img src="{% static 'assets/images/users/avatar-2.jpg' %}" alt="" class="img-fluid rounded-circle">
-                                        </div>
-                                        <div class="flex-grow-1 overflow-hidden">
-                                            <h5 class="font-size-15 mb-1 text-truncate"><a href="pages-profile.html" class="text-dark">Helen
-                                                    Barron</a></h5>
-                                            <p class="text-muted text-truncate mb-0">Web Designer</p>
-                                        </div>
-                                        <div class="flex-shrink-0 dropdown">
-                                            <a class="text-body dropdown-toggle font-size-16" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal icon-xs"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">Edit</a>
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Remove</a>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <h5 class="font-size-15 mb-1 text-truncate"><a href="#" class="text-dark">{{ supervisor.user.first_name|capfirst }} {{ supervisor.user.last_name|capfirst }}</a></h5>
+                                                <p class="text-muted text-truncate mb-0">{{ supervisor.account_type }} </p>
                                             </div>
+                                            <div class="flex-shrink-0 dropdown">
+                                                <a class="text-body dropdown-toggle font-size-16" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal icon-xs"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Edit</a>
+                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="#">Remove</a>
+                                                </div>
+                                            </div><!-- end dropdown -->
                                         </div>
                                     </div>
-                                </div><!-- end cardbody -->
-                                <div class="btn-group btn-icon" role="group">
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Profile"><i class="uil uil-user"></i></button>
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message"><i class="uil uil-envelope-alt"></i></button>
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Projects"><i class="uil uil-chart-pie"></i></button>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="card border shadow-none">
-                                <div class="card-body p-4">
-                                    <div class="d-flex align-items-start">
-                                        <div class="flex-shrink-0 avatar rounded-circle me-3">
-                                            <img src="{% static 'assets/images/users/avatar-3.jpg' %}" alt="" class="img-fluid rounded-circle">
-                                        </div>
-                                        <div class="flex-grow-1 overflow-hidden">
-                                            <h5 class="font-size-15 mb-1 text-truncate"><a href="pages-profile.html" class="text-dark">Philip
-                                                    Theroux</a></h5>
-                                            <p class="text-muted text-truncate mb-0">UI/UX Designer</p>
-                                        </div>
-                                        <div class="flex-shrink-0 dropdown">
-                                            <a class="text-body dropdown-toggle font-size-16" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal icon-xs"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">Edit</a>
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Remove</a>
-                                            </div>
-                                        </div>
-                                        <!-- end dropdown -->
+                                    <!-- end card body -->
+                                    <div class="btn-group btn-icon" role="group">
+                                        <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Profile"><i class="uil uil-user"></i></button>
+                                        <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message"><i class="uil uil-envelope-alt"></i></button>
+                                        <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Projects"><i class="uil uil-chart-pie"></i></button>
                                     </div>
-                                </div><!--  end card -->
-                                <div class="btn-group btn-icon" role="group">
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Profile"><i class="uil uil-user"></i></button>
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message"><i class="uil uil-envelope-alt"></i></button>
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Projects"><i class="uil uil-chart-pie"></i></button>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="card border shadow-none">
-                                <div class="card-body p-4">
-                                    <div class="d-flex align-items-start">
-                                        <div class="flex-shrink-0 avatar rounded-circle me-3">
-                                            <img src="{% static 'assets/images/users/avatar-4.jpg' %}" alt="" class="img-fluid rounded-circle">
-                                        </div>
-                                        <div class="flex-grow-1 overflow-hidden">
-                                            <h5 class="font-size-15 mb-1 text-truncate"><a href="pages-profile.html" class="text-dark">Donald
-                                                    Risher</a></h5>
-                                            <p class="text-muted text-truncate mb-0">Backend Developer</p>
-                                        </div>
-                                        <div class="flex-shrink-0 dropdown">
-                                            <a class="text-body dropdown-toggle font-size-16" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal icon-xs"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">Edit</a>
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Remove</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end card body -->
-                                <div class="btn-group btn-icon" role="group">
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Profile"><i class="uil uil-user"></i></button>
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message"><i class="uil uil-envelope-alt"></i></button>
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Projects"><i class="uil uil-chart-pie"></i></button>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="card border shadow-none">
-                                <div class="card-body p-4">
-                                    <div class="d-flex align-items-start">
-                                        <div class="flex-shrink-0 avatar rounded-circle me-3">
-                                            <img src="{% static 'assets/images/users/avatar-5.jpg' %}" alt="" class="img-fluid rounded-circle">
-                                        </div>
-                                        <div class="flex-grow-1 overflow-hidden">
-                                            <h5 class="font-size-15 mb-1 text-truncate"><a href="pages-profile.html" class="text-dark">Gerald
-                                                    Moyer</a></h5>
-                                            <p class="text-muted text-truncate mb-0">Backend Developer</p>
-                                        </div>
-                                        <div class="flex-shrink-0 dropdown">
-                                            <a class="text-body dropdown-toggle font-size-16" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal icon-xs"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">Edit</a>
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Remove</a>
-                                            </div>
-                                        </div>
-                                    </div><!-- end -->
-                                </div><!-- end cardbody -->
-                                <div class="btn-group btn-icon" role="group">
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Profile"><i class="uil uil-user"></i></button>
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message"><i class="uil uil-envelope-alt"></i></button>
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Projects"><i class="uil uil-chart-pie"></i></button>
-                                </div>
-                                <!-- end btn-group -->
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="card border shadow-none">
-                                <div class="card-body p-4">
-                                    <div class="d-flex align-items-start">
-                                        <div class="flex-shrink-0 avatar rounded-circle me-3">
-                                            <img src="{% static 'assets/images/users/avatar-6.jpg' %}" alt="" class="img-fluid rounded-circle">
-                                        </div>
-                                        <div class="flex-grow-1 overflow-hidden">
-                                            <h5 class="font-size-15 mb-1 text-truncate"><a href="pages-profile.html" class="text-dark">Sharon
-                                                    Carver</a></h5>
-                                            <p class="text-muted text-truncate mb-0">Frontend Developer</p>
-                                        </div>
-                                        <div class="flex-shrink-0 dropdown">
-                                            <a class="text-body dropdown-toggle font-size-16" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal icon-xs"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">Edit</a>
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Remove</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end card body -->
-                                <div class="btn-group btn-icon" role="group">
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Profile"><i class="uil uil-user"></i></button>
-                                    <button type="button" class="btn btn-outline-light " data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message"><i class="uil uil-envelope-alt"></i></button>
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Projects"><i class="uil uil-chart-pie"></i></button>
-                                </div>
-                                <!-- end button group -->
-                            </div>
-                            <!-- end card -->
-                        </div><!-- end col -->
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="card border shadow-none">
-                                <div class="card-body p-4">
-                                    <div class="d-flex align-items-start">
-                                        <div class="flex-shrink-0 avatar rounded-circle me-3">
-                                            <img src="{% static 'assets/images/users/avatar-7.jpg' %}" alt="" class="img-fluid rounded-circle">
-                                        </div>
-                                        <div class="flex-grow-1 overflow-hidden">
-                                            <h5 class="font-size-15 mb-1 text-truncate"><a href="pages-profile.html" class="text-dark">Jody
-                                                    Tondreau</a></h5>
-                                            <p class="text-muted text-truncate mb-0">PHP Developer</p>
-                                        </div>
-                                        <div class="flex-shrink-0 dropdown">
-                                            <a class="text-body dropdown-toggle font-size-16" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal icon-xs"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">Edit</a>
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Remove</a>
-                                            </div>
-                                        </div>
-                                        <!-- end dropdown -->
-                                    </div>
-                                </div>
-                                <!-- end card body -->
-                                <div class="btn-group btn-icon" role="group">
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Profile"><i class="uil uil-user"></i></button>
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message"><i class="uil uil-envelope-alt"></i></button>
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Projects"><i class="uil uil-chart-pie"></i></button>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="card border shadow-none">
-                                <div class="card-body p-4">
-                                    <div class="d-flex align-items-start">
-                                        <div class="flex-shrink-0 avatar rounded-circle me-3">
-                                            <img src="{% static 'assets/images/users/avatar-8.jpg' %}" alt="" class="img-fluid rounded-circle">
-                                        </div>
-                                        <div class="flex-grow-1 overflow-hidden">
-                                            <h5 class="font-size-15 mb-1 text-truncate"><a href="pages-profile.html" class="text-dark">Dennis
-                                                    Goulet</a></h5>
-                                            <p class="text-muted text-truncate mb-0">Graphic Designer</p>
-                                        </div>
-                                        <div class="flex-shrink-0 dropdown">
-                                            <a class="text-body dropdown-toggle font-size-16" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal icon-xs"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">Edit</a>
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Remove</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end card body -->
-                                <div class="btn-group btn-icon" role="group">
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Profile"><i class="uil uil-user"></i></button>
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message"><i class="uil uil-envelope-alt"></i></button>
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Projects"><i class="uil uil-chart-pie"></i></button>
-                                </div>
-                                <!-- end button group -->
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-                        <div class="col-xl-4 col-sm-6">
-                            <div class="card border shadow-none">
-                                <div class="card-body p-4">
-                                    <div class="d-flex align-items-start">
-                                        <div class="flex-shrink-0 avatar rounded-circle me-3">
-                                            <img src="{% static 'assets/images/users/avatar-9.jpg' %}" alt="" class="img-fluid rounded-circle">
-                                        </div>
-                                        <div class="flex-grow-1 overflow-hidden">
-                                            <h5 class="font-size-15 mb-1 text-truncate"><a href="#" class="text-dark">Cecelia Farrell</a></h5>
-                                            <p class="text-muted text-truncate mb-0">Angular Developer</p>
-                                        </div>
-                                        <div class="flex-shrink-0 dropdown">
-                                            <a class="text-body dropdown-toggle font-size-16" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal icon-xs"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">Edit</a>
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Remove</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end crad body -->
-                                <div class="btn-group btn-icon" role="group">
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Profile "><i class="uil uil-user"></i></button>
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message"><i class="uil uil-envelope-alt"></i></button>
-                                    <button type="button" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Projects"><i class="uil uil-chart-pie"></i></button>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
+                                </div><!-- end card -->
+                            </div><!-- end col -->
+                        {% endfor %}
+
+            
+
+
                     </div><!-- end row -->
                     <div class="row g-0 text-center text-sm-start">
                         <div class="col-sm-6">

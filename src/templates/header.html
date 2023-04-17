@@ -165,11 +165,11 @@
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item user text-start d-flex align-items-center" id="page-header-user-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle header-profile-user" src="{% static 'assets/images/avatar.jpg' %}"
-                    alt="Header Avatar">
+                    <img class="rounded-circle header-profile-user" src="{{ user_profile.smart.url }}"
+                    alt="Profil Picture">
                     <span class="ms-2 d-none d-sm-block user-item-desc">
                         <span class="user-name"> {{ user_profile.user.first_name | capfirst }} {{ user_profile.user.last_name | capfirst }} </span>
-                        <span class="user-sub-title">{{ user_profile.account_type|capfirst }}</span>
+                        <span class="user-sub-title">{{ user_profile.account_type   | capfirst }}</span>
                     </span>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end pt-0">
@@ -177,10 +177,11 @@
                         <h6 class="mb-0 text-white">{{ user_profile.user.first_name | capfirst }} {{ user_profile.user.last_name | capfirst }}</h6>
                         <p class="mb-0 font-size-11 text-white-50 fw-semibold">{{ user_profile.user.email }}</p>
                     </div>
-                    <a class="dropdown-item" href="{% url 'core:cadet_profile' %}"><i class="uil-user text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
+                    <a class="dropdown-item" href="{% url 'core:cadet_profile' user_profile.id %}"><i class="uil-user text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
                     <a class="dropdown-item" href="{% url 'core:cadet_messages' %}"><i class="uil-envelope-add text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Messages</span></a>
-                    <a class="dropdown-item" href="{% url 'core:cadet_taskboard' %}"><i class="uil-clipboard-notes text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Taskboard</span></a>
-
+                    {% if user_profile.account_type == 'cadet' %}
+                        <a class="dropdown-item" href="{% url 'core:cadet_taskboard' %}"><i class="uil-clipboard-notes text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Taskboard</span></a>
+                    {% endif %}
                     <div class="dropdown-divider"></div>
 
                     <a class="dropdown-item d-flex align-items-center" href="{% url 'core:settings' %}"><i class="uil-wrench text-muted font-size-16 align-middle me-1"></i> <span class="align-middle">Settings</span></a>
@@ -208,23 +209,25 @@
                           
                         </li>
                         
+                        {% if user_profile.account_type == 'supervisor' %}
+                            <li class="nav-item">
+                                <a class="nav-link dropdown-toggle arrow-none" href="{% url 'core:cadets' %}" id="topnav-components" role="button"
+                                >
+                                    <i class="icon nav-icon" data-feather="layers"></i>
+                                    <span data-key="t-components">Cadets</span>
+                                </a>
 
-                        <li class="nav-item">
-                            <a class="nav-link dropdown-toggle arrow-none" href="{% url 'core:cadets' %}" id="topnav-components" role="button"
-                            >
-                                <i class="icon nav-icon" data-feather="layers"></i>
-                                <span data-key="t-components">Cadets</span>
-                            </a>
+                            </li>
+                        {% endif %}
 
-                        </li>
-
-                        
-                        <li class="nav-item">
-                            <a class="nav-link arrow-none" href="{% url 'core:supervisors_profile'  %}">
-                                <i class="icon nav-icon" data-feather="layout"></i>
-                                <span data-key="t-horizontal">Supervisors</span>
-                            </a>
-                        </li>
+                        {% if user_profile.account_type == 'supervisor' %}
+                            <li class="nav-item">
+                                <a class="nav-link arrow-none" href="{% url 'core:supervisors_profile'  %}">
+                                    <i class="icon nav-icon" data-feather="layout"></i>
+                                    <span data-key="t-horizontal">Supervisors</span>
+                                </a>
+                            </li>
+                        {% endif %}
 
 
                         <li class="nav-item">

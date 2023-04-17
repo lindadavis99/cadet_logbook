@@ -3,3 +3,4 @@ venv/
 /static_cdn
 /src/cadet_logbook/settings/base.py
 /src/core/token_generator.py
+/src/db.sqlite3
