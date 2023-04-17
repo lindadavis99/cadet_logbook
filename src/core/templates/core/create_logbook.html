@@ -87,22 +87,28 @@
                                         <label for="work_title" class="form-label">Work Title</label>
                                         {% render_field form.work_title id="work_title" type="text" class="form-control" placeholder="Work Title" %}
                                     </div>
-                                    
-                                      <span style="color:red">{{ form.form.description_of_work.errors}}</span>
+
+                                    <span style="color:red">{{ form.form.description_of_work.errors}}</span>
                                     <div class="mb-3">
                                         <label for="projectdesc" class="form-label">Description Of Work Done</label>
                                         {% render_field form.description_of_work class="form-control" id="projectdesc" rows="3" placeholder="Work Description..." %}
                                     
                                     </div>
                                     
-                                   
+                                    
+                                    
+                                    <span style="color:red">{{ form.department.errors}}</span>
+                                    <div class="mb-3">
+                                        <label for="cadet_department" class="form-label"> Department: </label>
+                                        {% render_field form.department class="form-select form-control"  id="cadet_department" placeholder="Department" %}
+                                    </div>  
+
 
                                     <span style="color:red">{{ form.end_date.errors}}</span>
                                     <div class="mb-3">
                                         <label class="form-label"> End Date : </label>
-                                        {% render_field form.end_date type="text" class="form-control flatpickr-input" id="datepicker-range" %}
-                                    </div>  
-
+                                        {% render_field form.end_date type="date" class="form-control" id="date" %}
+                                    </div> 
 
                                 </div>
 

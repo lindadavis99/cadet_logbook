@@ -86,3 +86,10 @@ class CadetLogbookModelForm(forms.ModelForm):
 
 class SearchForm(forms.Form):
     keyword = forms.CharField(max_length=50, required=True, strip=True)
+
+
+class SupervisorCommentModelForm(forms.ModelForm):
+
+    class Meta:
+        model = Cadetlogbook
+        fields = ['work_status', 'comment']

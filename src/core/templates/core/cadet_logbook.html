@@ -174,7 +174,7 @@
                                                                     <div>
                                                                         <p class="text-muted font-size-13 mb-2">Comments &nbsp; 
                                                                             {% if profile.account_type == 'supervisor' %}
-                                                                                <i data-bs-toggle="modal" data-bs-target="#addContactModal" class="uil uil-pen">Edit</i>
+                                                                                <button data-bs-toggle="modal" data-bs-target="#addContactModal" class="uil uil-pen">Edit</button>
                                                                             {% endif %}
                                                                         </p>
                                                             
@@ -310,94 +310,97 @@
 
                         <div class="tab-pane" id="list-complete" role="tabpanel">
                             <div>
-                                <div>
-                                    {% for logbook in cadet_logbooks %}
 
-                                        {% if logbook.work_status == 'completed' %}
-                                            <div class="card border shadow-none">
-                                                <div class="card-body">
-                                                    <div class="d-flex">
-                                                        <div class="flex-grow-1 me-2 flex-wrap">
-                                                            <h5 class="font-size-15 mb-1"><a href="projects-overview.html" class="text-dark">Chat App</a></h5>
-                                                            <p class="text-muted mb-0">Quis autem vel eum iure</p>
-                                                        </div>
-                                                        <div class="flex-shrink-0">
-                                                            <div class="d-flex gap-2">
-                                                                <div>
-                                                                    <a href="#" class="btn btn-light btn-sm"><i class="uil uil-pen"></i></a>
-                                                                </div>
-                                                                <div class="dropdown">
-                                                                    <a class="btn btn-light btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal icon-xs"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-                                                                    </a>
-                                                                    <ul class="dropdown-menu dropdown-menu-end" style="">
-                                                                        <li><a class="dropdown-item" href="{% url 'core:update_logbook_entry' logbook.id  %}">Update Entry</a></li>
-                                                                        <li>
-                                                                            <form id="delete_logbook" action="{% url 'core:delete_logbook_entry' %}" method="POST">
-                                                                                <input type="hidden" name="entry_id" value="{{logbook.id}}" />
-                                                                                {% csrf_token %}
-                                                                                <button type="submit" class="dropdown-item">Delete Entry</button>
-                                                                            </form>
-                                                                        </li>
-                                                                    </ul>
+                                {% for logbook in cadet_logbooks %}
+                                    <div>
+                                        
+
+                                            {% if logbook.work_status == 'completed' %}
+                                                <div class="card border shadow-none">
+                                                    <div class="card-body">
+                                                        <div class="d-flex">
+                                                            <div class="flex-grow-1 me-2 flex-wrap">
+                                                                <h5 class="font-size-15 mb-1"><a href="projects-overview.html" class="text-dark">Chat App</a></h5>
+                                                                <p class="text-muted mb-0">Quis autem vel eum iure</p>
+                                                            </div>
+                                                            <div class="flex-shrink-0">
+                                                                <div class="d-flex gap-2">
+                                                                    <div>
+                                                                        <a href="#" class="btn btn-light btn-sm"><i class="uil uil-pen"></i></a>
+                                                                    </div>
+                                                                    <div class="dropdown">
+                                                                        <a class="btn btn-light btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal icon-xs"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                                                                        </a>
+                                                                        <ul class="dropdown-menu dropdown-menu-end" style="">
+                                                                            <li><a class="dropdown-item" href="{% url 'core:update_logbook_entry' logbook.id  %}">Update Entry</a></li>
+                                                                            <li>
+                                                                                <form id="delete_logbook" action="{% url 'core:delete_logbook_entry' %}" method="POST">
+                                                                                    <input type="hidden" name="entry_id" value="{{logbook.id}}" />
+                                                                                    {% csrf_token %}
+                                                                                    <button type="submit" class="dropdown-item">Delete Entry</button>
+                                                                                </form>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <!-- end card body -->
-                                                <div class="">
-                                                    <div class="row g-0">
-                                                        <div class="col-xl-3 col-sm-6">
-                                                            <div class="border p-3 h-100">
-                                                                <div>
-                                                                    <p class="text-muted font-size-13 mb-2">Department</p>
-                                                                    <div class="badge badge-soft-info font-size-12">{{ logbook.department }}</div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- end col -->
-                                                        <div class="col-xl-3 col-sm-6">
-                                                            <div class="border p-3 h-100">
-                                                                <div>
-                                                                    <p class="text-muted font-size-13 mb-2">Due Date</p>
-                                                                    <h5 class="font-size-14 mb-0">{{ logbook.end_date }}</h5>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- end col -->
-                                                        <div class="col-xl-3 col-sm-6">
-                                                            <div class="border p-3 h-100">
-                                                                <div>
-                                                                    <p class="text-muted font-size-13 mb-2">Status</p>
-                                                                    <div class="badge bg-success font-size-12">Completed</div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- end col -->
-                                                       
-                                                        <div class="col-xl-3 col-sm-6">
-                                                            <div class="border p-3 h-100">
-                                                                <div>
-                                                            
+                                                    <!-- end card body -->
+                                                    <div class="">
+                                                        <div class="row g-0">
+                                                            <div class="col-xl-3 col-sm-6">
+                                                                <div class="border p-3 h-100">
                                                                     <div>
-                                                                        <p class="text-muted font-size-13 mb-2">Comments &nbsp; 
-                                                                            {% if profile.account_type == 'supervisor' %}
-                                                                                <i data-bs-toggle="modal" data-bs-target="#addContactModal" class="uil uil-pen">Edit</i>
-                                                                            {% endif %}
-                                                                        </p>
-                                                            
-                                                                        <h5 class="font-size-14 mb-0">{{ logbook.comment }}</h5>
+                                                                        <p class="text-muted font-size-13 mb-2">Department</p>
+                                                                        <div class="badge badge-soft-info font-size-12">{{ logbook.department }}</div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        </div> <!-- end col -->
+                                                            </div><!-- end col -->
+                                                            <div class="col-xl-3 col-sm-6">
+                                                                <div class="border p-3 h-100">
+                                                                    <div>
+                                                                        <p class="text-muted font-size-13 mb-2">Due Date</p>
+                                                                        <h5 class="font-size-14 mb-0">{{ logbook.end_date }}</h5>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- end col -->
+                                                            <div class="col-xl-3 col-sm-6">
+                                                                <div class="border p-3 h-100">
+                                                                    <div>
+                                                                        <p class="text-muted font-size-13 mb-2">Status</p>
+                                                                        <div class="badge bg-success font-size-12">Completed</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- end col -->
+                                                        
+                                                            <div class="col-xl-3 col-sm-6">
+                                                                <div class="border p-3 h-100">
+                                                                    <div>
+                                                                
+                                                                        <div>
+                                                                            <p class="text-muted font-size-13 mb-2">Comments &nbsp; 
+                                                                                {% if profile.account_type == 'supervisor' %}
+                                                                                    <i data-bs-toggle="modal" data-bs-target="#addContactModal" class="uil uil-pen">Edit</i>
+                                                                                {% endif %}
+                                                                            </p>
+                                                                
+                                                                            <h5 class="font-size-14 mb-0">{{ logbook.comment }}</h5>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div> <!-- end col -->
 
-                                                    </div><!-- end row -->
-                                                </div>
-                                            </div><!-- end card -->
-                                        {% endif %}
+                                                        </div><!-- end row -->
+                                                    </div>
+                                                </div><!-- end card -->
+                                            {% endif %}
 
-                                    {% endfor %}
-                           
-                                </div>
+                                        
+                            
+                                    </div>
+                                {% endfor %}
                                 
                             </div>
                         </div>
@@ -417,34 +420,37 @@
                                 <h5 class="modal-title" id="addContactModalLabel">Edit Logbook</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body p-4">
-                                <div>
-                                    <div class="mb-3">
-                                        <label for="work_status">Work Status</label>
+
+                            <form action="#" method="POST">
+                                    <div class="modal-body p-4">
+                                        <div>
+                                            <div class="mb-3">
+                                                <label for="work_status">Work Status</label>
 
 
-                                        <select name="work_status" maxlength="20" placeholder="Work Status" id="work_status" class="form-select">
-                                            <option value="male">Pending</option>
-                                          
-                                            <option value="female">Completed</option>
-                                          
-                                          </select>
-                                        
-                         
-                                    
+                                                <select name="work_status" maxlength="20" placeholder="Work Status" id="work_status" class="form-select">
+                                                    <option value="male">Pending</option>
+                                                
+                                                    <option value="female">Completed</option>
+                                                
+                                                </select>
+                                                
+                                
+                                            
+                                            </div>
+                                            
+
+                                            <div class="mb-3">
+                                                <label for="comment" class="form-label">Comment</label>
+                                                <input type="text" class="form-control" id="comment" placeholder="Comment">
+                                            </div>
+                                        </div>
                                     </div>
-                                    
-
-                                    <div class="mb-3">
-                                        <label for="comment" class="form-label">Comment</label>
-                                        <input type="text" class="form-control" id="comment" placeholder="Comment">
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light w-sm" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary w-sm">Post Comment</button>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-light w-sm" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary w-sm">Post Comment</button>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

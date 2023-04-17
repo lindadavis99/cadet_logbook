@@ -10,7 +10,7 @@ from django.views.generic import TemplateView
 from .forms import (
     UserRegistrationForm, SupervisorRegistrationForm, 
     CadetRegistrationForm, CadetLogbookModelForm,
-    SearchForm
+    SearchForm, SupervisorCommentModelForm
 )
 #from .token_generator import account_activation_token
 from django.contrib.auth.decorators import login_required
@@ -124,7 +124,6 @@ def is_ajax(request):
 def delete_logbook_entry(request):
     if request.method == "POST" and is_ajax(request=request):
         logbook_id = request.POST.get('entry_id')
-        print(logbook_id)
         logbook_entry = Cadetlogbook.objects.get(id=logbook_id)
         logbook_entry.delete()
         return JsonResponse({"message": "Logbook Entry Successfully Deleted"}, status=200)
@@ -216,6 +215,24 @@ def cadet_logbook(request):
         'search_form': search_form,  
         'cadet_logbooks' : cadet_logbooks
     })
+
+
+@login_required
+def supervisor_comment(request, id):
+    logbook_instance = get_object_or_404(Cadetlogbook, id=id)
+    form = SupervisorCommentModelForm(request.POST or None, instance=logbook_instance)
+    if request.method == 'POST':
+        if form.is_valid():
+            instance =  form.save(commit=False) 
+            instance.supervisor = request.user
+            instance.save()
+            messages.success(request, "Comment Updated")
+            return HttpResponseRedirect("/dashboard/cadet/logbook/")
+
+        else:
+            messages.success(request, "Failed to update comment")
+            return HttpResponseRedirect("/dashboard/cadet/logbook/")
+
 
 @login_required
 def createlogbook(request):

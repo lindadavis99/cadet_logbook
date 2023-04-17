@@ -37,6 +37,7 @@ urlpatterns = [
     path('dashboard/cadets/', views.cadets, name='cadets'),
     path('dashboard/cadet/<int:id>/profile/', views.cadet_profile, name='cadet_profile'),
     path('dashboard/cadet/messages/', views.cadet_messages, name='cadet_messages'),
+    path('dashboard/supervisor/<int:id>/comments/add/', views.supervisor_comment, name='supervisor_comment'),
     path('dashboard/cadet/taskboard/', views.cadet_taskboard, name='cadet_taskboard'),
     path('dashboard/cadet/logbook/', views.cadet_logbook, name='cadet_logbook'),
     path('dashboard/cadet/create-logbook/', views.createlogbook, name='create_logbook'),

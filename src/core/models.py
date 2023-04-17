@@ -49,7 +49,8 @@ class Cadetlogbook(models.Model):
         ('completed', 'Completed'),
     )
 
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True) 
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    supervisor = models.ForeignKey(User, related_name="supervisor_cadetlogbook", on_delete=models.SET_NULL, null=True) 
     work_title = models.CharField(max_length=100, null=True)
     description_of_work = models.TextField() 
     department =  models.CharField(max_length=50, choices=DEPARTMENT, null=True)
