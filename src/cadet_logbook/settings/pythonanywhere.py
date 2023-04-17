@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-c7yxb*erb=k)b)9y*8n%4i+=mpmk67!1+(@8dl^p3x9*#8g+@*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*", "videocall.pythonanywhere.com"]
+ALLOWED_HOSTS = ["*", "cadetlogbook.pythonanywhere.com"]
 
 
 # Application definition
@@ -111,10 +111,10 @@ LOGOUT_URL = reverse_lazy('core:lockscreen')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [ BASE_DIR / 'static' ]
 
-STATIC_ROOT =  '/home/videocall/vidicu/static_cdn'
+STATIC_ROOT =  '/home/cadetlogbook/cadet_logbook/static_cdn'
 
 
 MEDIA_URL = 'media/'
