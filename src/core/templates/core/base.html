@@ -22,6 +22,9 @@
         <!-- App Css-->
         <link href="{% static 'assets/css/app.min.css' %}" id="app-style" rel="stylesheet" type="text/css" />
 
+        {% block css %}
+
+        {% endblock css %}
     </head>
 
     <body data-layout="horizontal">
@@ -32,7 +35,7 @@
             {% block header %}
                 
                 <!-- Overide header in child template -->
-                
+
             {% endblock header %}
 
 
@@ -63,8 +66,10 @@
 
         <!-- JAVASCRIPT -->
         <script src="{% static 'assets/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="{% static 'assets/libs/metismenujs/metismenujs.min.js' %}"></script>
         <script src="{% static 'assets/libs/simplebar/simplebar.min.js' %}"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="{% static 'assets/libs/feather-icons/feather.min.js' %}"></script>
 
         <!-- apexcharts -->
@@ -77,6 +82,11 @@
         <script src="{% static 'assets/js/pages/dashboard-sales.init.js' %}"></script>
 
         <script src="{% static 'assets/js/app.js' %}"></script>
+
+        {% block script %}
+
+
+        {% endblock script %}
 
     </body>
 

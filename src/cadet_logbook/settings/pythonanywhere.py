@@ -105,7 +105,7 @@ USE_TZ = True
 
 LOGIN_URL = reverse_lazy('core:home')
 LOGIN_REDIRECT_URL = reverse_lazy('core:dashboard')
-LOGOUT_URL = reverse_lazy('core:lockscreen')
+LOGOUT_URL = reverse_lazy('core:home')
 
 
 # Static files (CSS, JavaScript, Images)

@@ -1,4 +1,5 @@
 import re
+from .models import Cadetlogbook
 from django import forms
 from django.contrib.auth.models import User 
 
@@ -73,3 +74,15 @@ class SupervisorRegistrationForm(RegistrationForm2):
 
 class CadetRegistrationForm(RegistrationForm2):
     custom_error_message = 'Sorry This Reg No Already Exists. '
+
+
+
+class CadetLogbookModelForm(forms.ModelForm):
+    
+    class Meta:
+        model = Cadetlogbook
+        fields = ['work_title','department', 'description_of_work', 'end_date']
+
+
+class SearchForm(forms.Form):
+    keyword = forms.CharField(max_length=50, required=True, strip=True)

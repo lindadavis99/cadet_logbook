@@ -1,12 +1,20 @@
-from . models import Profile
+from django.db.models import Q
+from django.contrib import messages
+from . models import Profile, Cadetlogbook
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from django.views.generic.edit import FormView
 from django.views.generic import TemplateView
-from .forms import (UserRegistrationForm, SupervisorRegistrationForm, CadetRegistrationForm)
+from .forms import (
+    UserRegistrationForm, SupervisorRegistrationForm, 
+    CadetRegistrationForm, CadetLogbookModelForm,
+    SearchForm
+)
 #from .token_generator import account_activation_token
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import (Paginator, EmptyPage, PageNotAnInteger)
 
 
 class Register(FormView):
@@ -98,12 +106,49 @@ def settings(request):
 def lockscreen(request):
     return render(request, 'core/lockscreen.html', {})
 
+
 @login_required
 def cadets(request):
     profile = get_object_or_404(Profile, user=request.user)
+ 
     return render(request, 'core/cadets.html', {
-        'profile':profile
+        'profile':profile,
+       
     })
+
+
+def is_ajax(request):
+    return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
+
+@login_required
+def delete_logbook_entry(request):
+    if request.method == "POST" and is_ajax(request=request):
+        logbook_id = request.POST.get('entry_id')
+        print(logbook_id)
+        logbook_entry = Cadetlogbook.objects.get(id=logbook_id)
+        logbook_entry.delete()
+        return JsonResponse({"message": "Logbook Entry Successfully Deleted"}, status=200)
+
+    else:
+        return JsonResponse({'errors' : 'Failed to process request, please try again later'}, status=404)
+
+@login_required
+def update_logbook_entry(request, id):
+    profile = get_object_or_404(Profile, user=request.user)
+    logbook_instance = get_object_or_404(Cadetlogbook, id=id)
+    form = CadetLogbookModelForm(request.POST or None, instance=logbook_instance)
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Logbook Successfully Updated")
+            return HttpResponseRedirect("/dashboard/cadet/logbook/")
+
+    return render(request, 'core/update_logbook.html', {
+        'form' : form, 
+        'profile' : profile,
+        'logbook_instance' : logbook_instance.id
+    })
+
 
 @login_required
 def cadet_profile(request):
@@ -126,18 +171,80 @@ def cadet_taskboard(request):
         'profile':profile
     })
 
+
+
+def is_valid_queryparam(param):
+    return param != '' and param is not None
+
 @login_required
 def cadet_logbook(request):
+    cadet_logbooks = None
+    search_form =  SearchForm(request.GET)
+    keyword = request.GET.get('keyword') 
     profile = get_object_or_404(Profile, user=request.user)
+
+    if profile.account_type == 'cadet':
+        cadet_logbooks = Cadetlogbook.objects.filter(user=request.user)
+    
+    else: 
+        cadet_logbooks = Cadetlogbook.objects.all() 
+
+    if is_valid_queryparam(keyword):
+        cadet_logbooks = Cadetlogbook.published.filter(
+            Q(work_title__icontains=keyword)|
+            Q(description_of_work__icontains=keyword) |
+            Q(user__first_name__icontains=keyword) | 
+            Q(user__last_name__icontains=keyword) 
+        ).distinct()
+
+    
+    paginator = Paginator(cadet_logbooks, 2)
+    page = request.GET.get('page')
+
+    try:
+        cadet_logbooks = paginator.page(page)
+
+    except PageNotAnInteger:
+        cadet_logbooks = paginator.page(1) 
+
+    except EmptyPage:
+        cadet_logbooks = paginator.page(paginator.num_pages)
+
     return render(request, 'core/cadet_logbook.html', {
-        'profile': profile
+        'profile': profile,
+        'page': page,
+        'search_form': search_form,  
+        'cadet_logbooks' : cadet_logbooks
     })
 
 @login_required
-def cadet_logbook_overview(request):
+def createlogbook(request):
     profile = get_object_or_404(Profile, user=request.user)
+    form = CadetLogbookModelForm(request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.user = request.user
+            instance.save()
+            messages.success(request, "Logbook Successfully Created")
+            return HttpResponseRedirect("/dashboard/cadet/logbook/")
+        else:
+            messages.error(request, "Logbook failed to save")
+            return HttpResponseRedirect("/dashboard/cadet/logbook/")
+
+    return render(request, 'core/create_logbook.html', {
+        'profile': profile,
+        'form' : form
+    })
+
+
+@login_required
+def cadet_logbook_overview(request, id):
+    profile = get_object_or_404(Profile, user=request.user)
+    cadet_logbook = get_object_or_404(Cadetlogbook, pk=id)
     return render(request, 'core/cadetlogbook_overview.html', {
-        'profile': profile
+        'profile': profile,
+        'cadet_logbook' : cadet_logbook 
     })
 
 @login_required

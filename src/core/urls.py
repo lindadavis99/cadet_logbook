@@ -10,7 +10,7 @@ app_name = 'core'
 
 urlpatterns = [
     path('', LoginView.as_view(template_name='core/login.html'), name='home'),
-    path('account/auth/logout/', LogoutView.as_view(next_page='/lockscreen/'), name='logout'),
+    path('account/auth/logout/', LogoutView.as_view(next_page='/'), name='logout'),
     path('account/auth/password-reset/', PasswordResetView.as_view(template_name='core/password_reset_form.html',
                                                            success_url='/account/auth/password-reset/done',
                                                            email_template_name='account/password_reset_email.html'),
@@ -39,7 +39,10 @@ urlpatterns = [
     path('dashboard/cadet/messages/', views.cadet_messages, name='cadet_messages'),
     path('dashboard/cadet/taskboard/', views.cadet_taskboard, name='cadet_taskboard'),
     path('dashboard/cadet/logbook/', views.cadet_logbook, name='cadet_logbook'),
-    path('dashboard/cadet/logbook/overview/', views.cadet_logbook_overview, name='cadet_logbook_overview'),
+    path('dashboard/cadet/create-logbook/', views.createlogbook, name='create_logbook'),
+    path('dashboard/cadet/delete-logbook/', views.delete_logbook_entry, name='delete_logbook_entry'),
+    path('dashboard/cadet/<int:id>/edit-logbook/', views.update_logbook_entry, name='update_logbook_entry'),
+    path('dashboard/cadet/logbook/<int:id>/overview/', views.cadet_logbook_overview, name='cadet_logbook_overview'),
     path('dashboard/supervisors/', views.supervisors, name='supervisors_profile'),
     path('dashboard/timeline/', views.timeline, name='timeline'),
 ]

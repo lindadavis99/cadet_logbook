@@ -8,12 +8,8 @@
         {% endif %}
       
         {% for page_num in pagination.paginator.page_range %}
-            <li class="page-item">
-                <a href="#" class="page-link">1</a>
-            </li>
-
-            <li class="page-item active">
-                <a href="#" class="page-link">2</a>
+            <li class='page-item {% if current_page|add:"0" == page_num  %} active {% elif current_page == None and page_num == 1 %} active {% endif %}'>
+                <a href="?page={{page_num}}" class="page-link">{{ page_num }}</a> 
             </li>
         {% endfor %}
     
